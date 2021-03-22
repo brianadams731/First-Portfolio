@@ -1,0 +1,32 @@
+.carousel-wrap img{
+    object-fit: contain;
+    position: absolute;
+    top:0;
+    left:0;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.imgLeft,.imgRight {
+    position: absolute;
+    z-index: 20;
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.imgLeft {
+    left:2px;
+}
+.imgRight{
+    right:2px;
+}
+.carousel-wrap{
+    position: relative;
+    margin: auto;
+    height: 500px;
+    width: 500px;
+}

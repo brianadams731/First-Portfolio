@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.app-wrap{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2D2C2C;
+    overflow-y: auto;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
+}
+
+svg{
+    overflow: visible
+}
+
+.nameBox {
+    position: absolute;
+    top:5%;
+    left:5%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nameBox h1{
+    font-size: 3rem;
+    font-weight: 500;
+    border-bottom: 2px solid rgba(255,255,255,.3);
+}
+
+.nameBox h3{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.legend {
+    color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    top:5%;
+    right: 5%;
+}
+
+.legend h3{
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.legBox{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.colorBox {
+    height: 80%;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.red {
+    background-color: #f07178;
+}
+.green {
+    background-color: #b9e871;
+}
+.blue{
+    background-color: #89ddf1;
+}
+
+.circle {
+    transition: all .2s ease;
+}
+
+.circle:hover {
+    cursor: pointer;
+    transform-origin: 50% 50%;
+}
+
+
+.glass{
+    background: rgba(255, 255, 255, 0.623);
+    backdrop-filter: blur( 10.0px );
+    -webkit-backdrop-filter: blur( 10.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
