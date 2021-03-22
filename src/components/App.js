@@ -93,7 +93,7 @@ function App() {
       </AnimatePresence>
 
       <AnimatePresence>
-        {displayProject?<ClickMod typeKey={modKey} type={modType} />:null}
+        {displayProject?<ClickMod exit={unMountDisplayProject} typeKey={modKey} type={modType} />:null}
       </AnimatePresence>
 
       <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
@@ -106,28 +106,28 @@ function App() {
           <div className="colorBox red"></div><h3>Projects</h3>
         </div>
         <div className="legBox">
-          <div className="colorBox green"></div><h3>Contact Me</h3>
+          <div className="colorBox green"></div><h3>About Me</h3>
         </div>
         <div className="legBox">
-          <div className="colorBox blue"></div><h3>About Me</h3>
+          <div className="colorBox blue"></div><h3>Contact</h3>
         </div>
       </motion.div>
 
       <svg width="856" height="675" viewBox="0 0 856 675" fill="none" xmlns="http://www.w3.org/2000/svg">
         
-        {/*ABOUT ME*/}
+        {/*CONTACT */}
         <motion.path initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:pathDuration.current}} d="M449 306V386L583 520V656" stroke="#89ddf1" strokeWidth="10"/>
         
         <motion.circle initial={{opacity:0}} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="583" cy="656" r="19" fill="#ffb487"/>
         <motion.circle initial={{opacity:0}} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="580" cy="520" r="19" fill="#ffb487"/>
 
-        {/*CONTACT ME*/}
+        {/*ABOUT ME*/}
         <motion.path initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:pathDuration.current}} d="M449 305.5L522 232.5V93.5L596.5 19H739" stroke="#b9e871" strokeWidth="10"/>
         
         <motion.circle initial={{opacity:0}} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="519" cy="233" r="19" fill="#ffb487"/>
         <motion.circle initial={{opacity:0}} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="739" cy="19" r="19" fill="#ffb487"/>
         
-        {/*CONTACT ME*/}
+        {/*ABOUT ME*/}
         <motion.path initial={{pathLength:0}} animate={{pathLength:1}} transition={{duration:pathDuration.current}} d="M449 306L407 348L358 397V498L310.1 545.5H19" stroke="#b9e871" strokeWidth="10"/>
         
         <motion.circle initial={{opacity:0}} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="360" cy="395" r="19" fill="#ffb487"/>

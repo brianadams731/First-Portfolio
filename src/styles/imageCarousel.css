@@ -8,21 +8,30 @@
     width: 100%;
 }
 
-.imgLeft,.imgRight {
+.carousel-wrap .imgLeft, .carousel-wrap .imgRight {
     position: absolute;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
     z-index: 20;
-    height: 20px;
-    width: 20px;
-    background-color: red;
+    height: 50px;
+    width: 50px;
     top:50%;
-    transform: translateY(-50%);
+}
+
+.imgLeft:hover, .imgRight:hover{
+    cursor: pointer;
 }
 
 .imgLeft {
-    left:2px;
+    left:10px;
 }
 .imgRight{
-    right:2px;
+    right:10px;
 }
 .carousel-wrap{
     position: relative;
