@@ -9,27 +9,27 @@ import useProjects from "../hooks/useProjects.js";
 import {motion} from "framer-motion"
 
 const ClickMod = (props) =>{
-    const projects = useProjects();
+    const project = useProjects(props.type,props.typeKey);
 
     return(
-        <motion.div onMouseDown={(e)=>e.stopPropagation()}initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper glass">
+        <motion.div onClick={(e)=>e.stopPropagation()}initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper glass">
             <div className="exit" onClick={props.exit}>x</div>
             <div className="title-wrap">
-                <h1>{projects.current[props.type][props.typeKey]?.name}</h1>
+                <h1>{project?.name}</h1>
             </div>
             <div className="content-wrap">
-            <ImageCarousel images={projects.current[props.type][props.typeKey]?.img} />
+            <ImageCarousel images={project?.img} />
                 <div className="description-wrap">
                     <div className="app-desc">
-                        <p>{projects.current[props.type][props.typeKey]?.desc}</p>
+                        <p>{project?.desc}</p>
                     </div>
                 </div>
             </div>
             <div className="tech">
-                <Tech techUsed={projects.current[props.type][props.typeKey]?.tech}/>
+                <Tech techUsed={project?.tech}/>
             </div>
             <div className="link-wrap">
-                <a target="_blank" rel="noopener noreferrer" href={projects?.current[props.type][props.typeKey]?.link}>See Project</a>
+                <a target="_blank" rel="noopener noreferrer" href={project?.link}>See Project</a>
             </div>
         </motion.div>
     )

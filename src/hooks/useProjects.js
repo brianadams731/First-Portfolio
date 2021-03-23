@@ -1,7 +1,7 @@
-import {useRef} from "react";
+import {useRef, useState, useEffect} from "react";
 
-const useProjects = () =>{
-    let projects = useRef({
+const useProjects = (project,name) =>{
+    let items = useRef({
         projects:{
             recypher:{
                 name:"Recypher",
@@ -12,7 +12,7 @@ const useProjects = () =>{
             },
             sideScroller:{
                 name:"Side Scroller",
-                img: ["/SideScroller.jpg","/Death - Copy.png"],  // loading from public
+                img: ["SideScroller.jpg","Death - Copy.png"],  // loading from public
                 desc: "Inspired by retro games like Castlvenia, made using pure js Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 tech: ["js", "html","css"],
                 link: "https://brianadams731.github.io/sideScrollerResume/sideScroller/",
@@ -41,16 +41,21 @@ const useProjects = () =>{
             },
         },
         contact:{
-            recypher:{
-                name:"Recypher",
-                img: null,
-                desc:null,
-                link: null,
+            form:{
+                name:"Contact Me",
             },
+            connect:{
+                name:"Connect With Me"
+            }
         }
     })
+    const [item,setItem] = useState(items.current[project][name])
+    
+    useEffect(()=>{
+        setItem(items.current[project][name])
+    },[name,project])
 
-    return projects;
+    return item;
 }
 
 

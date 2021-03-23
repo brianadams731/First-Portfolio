@@ -1,14 +1,14 @@
 import {motion, AnimatePresence} from "framer-motion";
-import {useRef, useState, useEffect,/*lazy, Suspense*/} from "react";
+import {useRef, useState} from "react";
 import "../styles/main.css";
 
-/*const HoverMod = lazy(()=>import("./HoverMod"));
-const ClickMod = lazy(()=>import("./ClickMod.js"));*/
 
 import HoverMod from "./HoverMod";
 import ClickMod from "./ClickMod";
+import ContactForm from "./ContactForm";
 
 import useScreenSize from "../hooks/useScreenSize";
+import Contact from "./Contact";
 
 function App() {
   const pathDuration = useRef(5);
@@ -21,52 +21,49 @@ function App() {
   const [modKey,setModKey] = useState();
 
   const [displayProject,setDisplayProject] = useState(false);
+  const [displayContact,setDisplayContact] = useState(false);
 
   const narrowScreen = useScreenSize();
 
-  useEffect(()=>{
-    console.log(narrowScreen)
-  },[narrowScreen])
-
-  const mountDisplayProject = (e) =>{
-    if(displayProject){
-      unMountDisplayProject();
-    }else{
-      e.stopPropagation()
-      setDisplayProject(true);
-    }
+  const mountPrep = (e,type,key,setShow) =>{
+    unMountAllMod();
+    e.stopPropagation()
+    modSetUp(e,type,key)
+    setShow(true)
   }
 
-  const unMountDisplayProject=()=>{
-    if(!displayProject){
-      console.log("fired")
-      return;
-    }
+  const unMountAllMod=()=>{
+    setDisplayContact(false);
     setDisplayProject(false);
   }
 
-  const hoverModSetUp = (e,type,key) =>{
-      modSetUp(e,type,key)
-      setShowMod(true);
+  const clickModSetUp = (e,type,key) =>{
+    mountPrep(e,type,key,setDisplayProject)
   }
 
-  const clickModSetUp = (e,type,key) =>{
-    modSetUp(e,type,key)
-    mountDisplayProject(e)
+  const contactModSetUp = (e,type,key) =>{
+    mountPrep(e,type,key,setDisplayContact)
   }
 
   const modSetUp = (e,type,key) =>{
     if(displayProject){
       return;
     }
-
     let pos = e.target.getBoundingClientRect();
     setModXY([pos.x,pos.y])
     setModType(type);
     setModKey(key);
   }
 
-  const unMountMod = () =>{
+  const hoverModSetUp = (e,type,key) =>{
+    if(displayContact||displayProject){
+      return
+    }
+      modSetUp(e,type,key)
+      setShowMod(true);
+  }
+
+  const unMountHoverMod = () =>{
     setShowMod(false);
   }
 
@@ -113,16 +110,12 @@ function App() {
   }
 
   return (
-    <div className="app-wrap" onMouseDown={unMountDisplayProject}>
-      {/*<Suspense fallback={<div style={{display:"none"}}>loading</div>}>*/}
-        <AnimatePresence>
-          {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} />:null}
-        </AnimatePresence>
-    
-        <AnimatePresence>
-          {displayProject?<ClickMod exit={unMountDisplayProject} typeKey={modKey} type={modType} />:null}
-        </AnimatePresence>
-      {/*</Suspense>*/}
+    <div className="app-wrap" onClick={unMountAllMod}>
+      <AnimatePresence>
+        {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} />:null}
+        {displayProject?<ClickMod exit={unMountAllMod} typeKey={modKey} type={modType} />:null}
+        {displayContact?modKey==="form"?<ContactForm key="contact-form"/>:<Contact key="contact"/>:null}
+      </AnimatePresence>
 
       <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
         <h1>Brian Adams</h1>
@@ -146,8 +139,8 @@ function App() {
         {/*CONTACT */}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306V386L583 520V656" stroke="#89ddf1" strokeWidth="10"/>
         
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="583" cy="656" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="580" cy="520" r="19" fill="#ffb487"/>
+        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="583" cy="656" r="19" fill="#ffb487"/>
+        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="580" cy="520" r="19" fill="#ffb487"/>
 
         {/*ABOUT ME*/}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 305.5L522 232.5V93.5L596.5 19H739" stroke="#b9e871" strokeWidth="10"/>
@@ -165,14 +158,14 @@ function App() {
         {/*PROJECTS RIGHT*/}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306L500 357L551 306H683L715 274H837" stroke="#f07178" strokeWidth="10"/>
         
-        <motion.circle initial={"hovInitial"}  onMouseDown={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="837" cy="274" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} onMouseDown={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="553" cy="307" r="19" fill="#ffb487"/>
+        <motion.circle initial={"hovInitial"}  onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="837" cy="274" r="19" fill="#ffb487"/>
+        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="553" cy="307" r="19" fill="#ffb487"/>
 
         {/*PROJECTS LEFT*/}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306H335L215 186V94L139 18" stroke="#f07178" strokeWidth="10"/>
         
-        <motion.circle initial={"hovInitial"} onMouseDown={(e)=>{clickModSetUp(e,"projects","recypher", true)}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher", true)}} onMouseLeave={unMountMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="139" cy="19" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} onMouseDown={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="215" cy="182" r="19" fill="#ffb487"/>
+        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="139" cy="19" r="19" fill="#ffb487"/>
+        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="215" cy="182" r="19" fill="#ffb487"/>
 
         <circle cx="449" cy="305" r="19" fill="#ffb487"/>
 

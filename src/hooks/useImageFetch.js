@@ -9,8 +9,7 @@ const useImageFetch = (imgArray) =>{
         imgArray.forEach((item)=>{
             setImages(prevState =>([...prevState,<motion.img initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} key={item} src={`${process.env.PUBLIC_URL}/assets/${item}`} loading="lazy" alt="porfolioImg"/>]))
         })
-        // eslint-disable-next-line
-    },[])
+    },[imgArray])
     return images;
 }
 
