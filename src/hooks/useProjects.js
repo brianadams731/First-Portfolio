@@ -33,12 +33,12 @@ const useProjects = (project,name) =>{
             }
         },
         about:{
-            recypher:{
-                name:"Recypher",
-                img: null,
-                desc:null,
-                link: null,
+            skills:{
+                name:"Skills"
             },
+            interests:{
+                name:"Interests"
+            }
         },
         contact:{
             form:{

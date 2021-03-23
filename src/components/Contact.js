@@ -1,12 +1,16 @@
 import React from "react";
 import {motion} from "framer-motion";
 
-import "../styles/contact.css";
+import ContactForm from "./ContactForm.js";
+import ContactSocial from "./ContactSocial";
 
-const Contact = () =>{
+import "../styles/contact.css"
+
+
+const Contact = (props) =>{
     return (
-        <motion.div onClick={(e)=>{e.stopPropagation()}}className="contact-wrap glass">
-            contact
+        <motion.div onClick={(e)=>{e.stopPropagation()}} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="contact-wrap">
+            {props.typeKey==="form"?<ContactForm />:<ContactSocial />}
         </motion.div>
     )
 }

@@ -1,14 +1,15 @@
 import {motion, AnimatePresence} from "framer-motion";
-import {useRef, useState} from "react";
+import {useRef, useState, useEffect} from "react";
 import "../styles/main.css";
 
 
 import HoverMod from "./HoverMod";
 import ClickMod from "./ClickMod";
-import ContactForm from "./ContactForm";
+import Contact from "./Contact";
+import About from "./About";
 
 import useScreenSize from "../hooks/useScreenSize";
-import Contact from "./Contact";
+
 
 function App() {
   const pathDuration = useRef(5);
@@ -22,11 +23,14 @@ function App() {
 
   const [displayProject,setDisplayProject] = useState(false);
   const [displayContact,setDisplayContact] = useState(false);
+  const [displayAbout,setDisplayAbout] = useState(false);
 
+  // eslint-disable-next-line
   const narrowScreen = useScreenSize();
 
   const mountPrep = (e,type,key,setShow) =>{
     unMountAllMod();
+    setShowMod(false);
     e.stopPropagation()
     modSetUp(e,type,key)
     setShow(true)
@@ -35,6 +39,7 @@ function App() {
   const unMountAllMod=()=>{
     setDisplayContact(false);
     setDisplayProject(false);
+    setDisplayAbout(false);
   }
 
   const clickModSetUp = (e,type,key) =>{
@@ -45,8 +50,12 @@ function App() {
     mountPrep(e,type,key,setDisplayContact)
   }
 
+  const aboutModSetUp=(e,type,key) =>{
+    mountPrep(e,type,key,setDisplayAbout)
+  }
+
   const modSetUp = (e,type,key) =>{
-    if(displayProject){
+    if(displayProject||displayAbout||displayContact){
       return;
     }
     let pos = e.target.getBoundingClientRect();
@@ -56,11 +65,12 @@ function App() {
   }
 
   const hoverModSetUp = (e,type,key) =>{
-    if(displayContact||displayProject){
-      return
-    }
-      modSetUp(e,type,key)
+    if(!displayContact&&!displayProject&&!displayAbout){
+      if(type!==modType||key!==modKey){
+        modSetUp(e,type,key)
+      }
       setShowMod(true);
+    }
   }
 
   const unMountHoverMod = () =>{
@@ -72,7 +82,6 @@ function App() {
       scale:1.2,
       transition:{
         duration:.1,
-        delay:.02 // delay so bounding box is computed before scale, this is hacky refactor!
       }
     },
     popIn:{
@@ -111,16 +120,21 @@ function App() {
 
   return (
     <div className="app-wrap" onClick={unMountAllMod}>
+
+
       <AnimatePresence>
-        {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} />:null}
-        {displayProject?<ClickMod exit={unMountAllMod} typeKey={modKey} type={modType} />:null}
-        {displayContact?modKey==="form"?<ContactForm key="contact-form"/>:<Contact key="contact"/>:null}
+        {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} key="hoverMod"/>:null}
+        {displayProject?<ClickMod exit={unMountAllMod} typeKey={modKey} type={modType} key="clickMod"/>:null}
+        {displayContact?<Contact typeKey={modKey} key="contact"/>:null}
+        {displayAbout?<About typeKey={modKey} key="about"/>:null}
       </AnimatePresence>
+
 
       <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
         <h1>Brian Adams</h1>
         <h3>Frontend Developer</h3>
       </div>
+
 
       <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current + .1, duration:1}}>
         <div className="legBox">
@@ -134,8 +148,8 @@ function App() {
         </div>
       </motion.div>
 
+
       <svg width="856" height="675" viewBox="0 0 856 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        
         {/*CONTACT */}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306V386L583 520V656" stroke="#89ddf1" strokeWidth="10"/>
         
@@ -145,8 +159,8 @@ function App() {
         {/*ABOUT ME*/}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 305.5L522 232.5V93.5L596.5 19H739" stroke="#b9e871" strokeWidth="10"/>
         
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="519" cy="233" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="739" cy="19" r="19" fill="#ffb487"/>
+        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="519" cy="233" r="19" fill="#ffb487"/>
+        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="739" cy="19" r="19" fill="#ffb487"/>
         
         {/*ABOUT ME*/}
         <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306L407 348L358 397V498L310.1 545.5H19" stroke="#b9e871" strokeWidth="10"/>
@@ -168,7 +182,6 @@ function App() {
         <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="215" cy="182" r="19" fill="#ffb487"/>
 
         <circle cx="449" cy="305" r="19" fill="#ffb487"/>
-
       </svg>
     </div>
   );

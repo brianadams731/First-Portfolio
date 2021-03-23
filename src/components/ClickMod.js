@@ -12,7 +12,7 @@ const ClickMod = (props) =>{
     const project = useProjects(props.type,props.typeKey);
 
     return(
-        <motion.div onClick={(e)=>e.stopPropagation()}initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper glass">
+        <motion.div onClick={(e)=>e.stopPropagation()}initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper">
             <div className="exit" onClick={props.exit}>x</div>
             <div className="title-wrap">
                 <h1>{project?.name}</h1>

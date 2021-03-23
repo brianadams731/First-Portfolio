@@ -1,4 +1,6 @@
 .click-mod-wrapper{
+    background-color: #525252;
+    color: white;
     overflow-y: auto;
     max-height: 80%;
     z-index: 1000;
@@ -48,8 +50,6 @@
 }
 
 .description-wrap {
-    background-color: white;
-    color:black;
     font-weight: 500;
     padding:20px;
     border-radius: 5px;
