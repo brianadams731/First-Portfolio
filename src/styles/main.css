@@ -8,11 +8,40 @@
 .app-wrap{
     height: 100vh;
     width: 100vw;
+    background-color: #1B1B1B;
+    overflow-y: auto;
+}
+
+.header {
+    margin: auto;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 87vw;
+    align-items: center;
+}
+
+.wide-svg-wrap {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2D2C2C;
-    overflow-y: auto;
+    top: 17%;
+}
+
+.narrow-svg-wrap{
+    width: 100vw;
+}
+
+.narrow-svg-wrap svg{
+    display: block;
+    margin: auto;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 398px;
 }
 
 .noselect {
@@ -29,7 +58,6 @@ svg{
 }
 
 .nameBox {
-    position: absolute;
     top:5%;
     left:5%;
     color: white;
@@ -39,7 +67,7 @@ svg{
 .nameBox h1{
     font-size: 3rem;
     font-weight: 500;
-    border-bottom: 2px solid rgba(255,255,255,.3);
+    border-bottom: 2px solid #F07178;
 }
 
 .nameBox h3{
@@ -49,13 +77,10 @@ svg{
 
 .legend {
     color: white;
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100px;
-    top:5%;
-    right: 5%;
 }
 
 .legend h3{
@@ -86,13 +111,9 @@ svg{
     background-color: #89ddf1;
 }
 
-.circle {
-    transition: all .2s ease;
-}
 
 .circle:hover {
-    cursor: pointer;
-    transform-origin: 50% 50%;
+    cursor: pointer; 
 }
 
 
@@ -109,4 +130,33 @@ svg{
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
+}
+
+@media only screen and (max-width: 550px) {
+    .app-wrap{
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    .header{
+        margin-top: 30px;
+    }
+    .colorBox{
+        margin: 0px;
+    }
+    .nameBox{
+        width: 100vw;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .legend{
+        width: 100vw;
+        height: auto;
+        flex-direction: row;
+    }
+    .legBox{
+        flex-direction: column;
+        height: 40px;
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
 }

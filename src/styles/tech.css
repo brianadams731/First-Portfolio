@@ -1,6 +1,10 @@
 .tech-wrap{
     text-align: center;
 }
+.tech-wrap h3{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
 
 .logo-wrap {
     margin-top: 15px;
@@ -14,8 +18,11 @@
 .tech-item {
     margin:10px;
     width: 90px;
+    font-weight: 300;
+    font-size: 1.2rem;
     transition: all ease .3s;
 }
+
 .tech-item:hover{
     transform: scale(1.3);
 }

@@ -7,7 +7,7 @@ const useProjects = (project,name) =>{
                 name:"Recypher",
                 img: [],
                 desc:"Translates English text into french",
-                tech: [],
+                tech: ["js","python","flask","html","css"],
                 link: null,
             },
             sideScroller:{
@@ -21,14 +21,14 @@ const useProjects = (project,name) =>{
                 name:"Elder Law Form",
                 img: [],
                 desc:"Large form application used to onboard new clients",
-                tech: [],
+                tech: ["js","react","html","css"],
                 link: null,
             },
             soulShine:{
                 name:"Soul Shine Sisters",
                 img: [],
                 desc:"Ecommerce store",
-                tech: [],
+                tech: ["js","next"],
                 link: null,
             }
         },

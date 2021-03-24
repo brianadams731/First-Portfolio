@@ -1,5 +1,5 @@
 import {motion, AnimatePresence} from "framer-motion";
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState} from "react";
 import "../styles/main.css";
 
 
@@ -12,8 +12,8 @@ import useScreenSize from "../hooks/useScreenSize";
 
 
 function App() {
-  const pathDuration = useRef(5);
-  const dotDelay = useRef(5);
+  const pathDuration = useRef(6);
+  const dotDelay = useRef(6);
 
   const [showMod,setShowMod] = useState(false);
   const [modXY, setModXY] = useState([0,0]);
@@ -29,10 +29,10 @@ function App() {
   const narrowScreen = useScreenSize();
 
   const mountPrep = (e,type,key,setShow) =>{
-    unMountAllMod();
-    setShowMod(false);
     e.stopPropagation()
+    unMountAllMod(); // is behaving asyncronusly
     modSetUp(e,type,key)
+    setShowMod(false);
     setShow(true)
   }
 
@@ -89,7 +89,7 @@ function App() {
       x:0,
       y:0,
       transition:{
-        delay: dotDelay.current,
+        delay: narrowScreen?dotDelay.current/1.3:dotDelay.current,
         duration:.5,
       },
 
@@ -112,15 +112,78 @@ function App() {
     },
     animPath:{
       pathLength:1,
-      transition:{
-        duration:pathDuration.current,
-      }
     },
   }
 
   return (
     <div className="app-wrap" onClick={unMountAllMod}>
+      <div className="header">
+        <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
+          <h1>Brian Adams</h1>
+          <h3>Frontend Developer</h3>
+        </div>
 
+        <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current + .1, duration:1}}>
+          <div className="legBox">
+            <div className="colorBox red"></div><h3>Projects</h3>
+          </div>
+          <div className="legBox">
+            <div className="colorBox green"></div><h3>About Me</h3>
+          </div>
+          <div className="legBox">
+            <div className="colorBox blue"></div><h3>Contact</h3>
+          </div>
+        </motion.div>
+      </div>
+
+      <div style={{display:narrowScreen?"none":"block"}}className="wide-svg-wrap">
+        <svg viewBox="0 0 1440 378" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 19.5H561L724 182.5L791.5 250H1440" transition={{delay:.6, duration:pathDuration.current}} stroke="#B9E871" strokeWidth="7"/>
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 103H290L545.5 358.5H1440" transition={{delay:.3, duration:pathDuration.current}} stroke="#89DDF1" strokeWidth="7"/>
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 179.5H724.5L819 85H1440" transition={{delay:0, duration:pathDuration.current}} stroke="#F07178" strokeWidth="7"/>
+
+          {/*Red*/}
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="194" cy="179" r="19" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="720" cy="179" r="19" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="526" cy="179" r="19" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="823" cy="85" r="19" fill="#ffb487"/>
+          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1259" cy="85" r="19" fill="#ffb487"/>
+
+          {/*Blue*/}
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="289" cy="103" r="19" fill="#ffb487"/>
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1149" cy="359" r="19" fill="#ffb487"/>
+
+          {/*Green*/}
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="555" cy="19" r="19" fill="#ffb487"/>
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="789" cy="246" r="19" fill="#ffb487"/>
+          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1048" cy="250" r="19" fill="#ffb487"/>
+        </svg>
+      </div>
+      
+      <div style={{display:narrowScreen?"block":"none"}} className="narrow-svg-wrap">
+        <svg viewBox="0 0 378 1440" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M198.5 0L198.5 724.5L293 819L293 1440" transition={{delay:.0, duration:pathDuration.current}} stroke="#F07178" strokeWidth="10"/>
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M275 0V290L19.5 545.5L19.5 1440" transition={{delay:.3, duration:pathDuration.current}} stroke="#89DDF1" strokeWidth="10"/>
+          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M358.5 0L358.5 561L195.5 724L128 791.5L128 1440" transition={{delay:.6, duration:pathDuration.current}}stroke="#B9E871" strokeWidth="10"/>
+          
+          {/*Projects*/}          
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="199" cy="194" r="19" transform="rotate(90 199 194)" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="199" cy="526" r="19" transform="rotate(90 199 526)" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="199" cy="720" r="19" transform="rotate(90 199 720)" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="293" cy="823" r="19" transform="rotate(90 293 823)" fill="#ffb487"/>
+          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="293" cy="1259" r="19" transform="rotate(90 293 1259)" fill="#ffb487"/>
+
+          {/*Contact*/}
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="275" cy="289" r="19" transform="rotate(90 275 289)" fill="#ffb487"/>
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")}initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="19" cy="1149" r="19" transform="rotate(90 19 1149)" fill="#ffb487"/>
+
+
+          {/*About*/}
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="359" cy="555" r="19" transform="rotate(90 359 555)" fill="#ffb487"/>
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")}initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="132" cy="789" r="19" transform="rotate(90 132 789)" fill="#ffb487"/>
+          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} cx="128" cy="1048" r="19" transform="rotate(90 128 1048)" fill="#ffb487"/>
+        </svg>
+      </div>
 
       <AnimatePresence>
         {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} key="hoverMod"/>:null}
@@ -128,63 +191,10 @@ function App() {
         {displayContact?<Contact typeKey={modKey} key="contact"/>:null}
         {displayAbout?<About typeKey={modKey} key="about"/>:null}
       </AnimatePresence>
-
-
-      <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
-        <h1>Brian Adams</h1>
-        <h3>Frontend Developer</h3>
-      </div>
-
-
-      <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current + .1, duration:1}}>
-        <div className="legBox">
-          <div className="colorBox red"></div><h3>Projects</h3>
-        </div>
-        <div className="legBox">
-          <div className="colorBox green"></div><h3>About Me</h3>
-        </div>
-        <div className="legBox">
-          <div className="colorBox blue"></div><h3>Contact</h3>
-        </div>
-      </motion.div>
-
-
-      <svg width="856" height="675" viewBox="0 0 856 675" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/*CONTACT */}
-        <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306V386L583 520V656" stroke="#89ddf1" strokeWidth="10"/>
-        
-        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="583" cy="656" r="19" fill="#ffb487"/>
-        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="580" cy="520" r="19" fill="#ffb487"/>
-
-        {/*ABOUT ME*/}
-        <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 305.5L522 232.5V93.5L596.5 19H739" stroke="#b9e871" strokeWidth="10"/>
-        
-        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="519" cy="233" r="19" fill="#ffb487"/>
-        <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="739" cy="19" r="19" fill="#ffb487"/>
-        
-        {/*ABOUT ME*/}
-        <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306L407 348L358 397V498L310.1 545.5H19" stroke="#b9e871" strokeWidth="10"/>
-        
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="360" cy="395" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="313" cy="546" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="19" cy="546" r="19" fill="#ffb487"/>
-
-        {/*PROJECTS RIGHT*/}
-        <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306L500 357L551 306H683L715 274H837" stroke="#f07178" strokeWidth="10"/>
-        
-        <motion.circle initial={"hovInitial"}  onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="837" cy="274" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="553" cy="307" r="19" fill="#ffb487"/>
-
-        {/*PROJECTS LEFT*/}
-        <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M449 306H335L215 186V94L139 18" stroke="#f07178" strokeWidth="10"/>
-        
-        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="139" cy="19" r="19" fill="#ffb487"/>
-        <motion.circle initial={"hovInitial"} onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="215" cy="182" r="19" fill="#ffb487"/>
-
-        <circle cx="449" cy="305" r="19" fill="#ffb487"/>
-      </svg>
     </div>
   );
 }
 
 export default App;
+
+
