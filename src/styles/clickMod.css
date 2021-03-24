@@ -79,3 +79,13 @@
 .click-mod-wrapper a:active{
     transform: scale(1);
 }
+
+
+@media only screen and (max-width: 550px) {
+    .click-mod-wrapper {
+        width:100vw;
+    }
+    .click-mod-wrapper img{
+        width:100%
+    }
+}

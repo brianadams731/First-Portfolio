@@ -38,7 +38,7 @@
 .narrow-svg-wrap svg{
     display: block;
     margin: auto;
-    width: 100%;
+    width: 75%;
     padding-left: 10px;
     padding-right: 10px;
     max-width: 398px;
@@ -111,11 +111,23 @@ svg{
     background-color: #89ddf1;
 }
 
+.circle{
+    transition:r .3s ease;
+}
 
-.circle:hover {
+.wide-svg-wrap .circle:hover {
+    r:25;
     cursor: pointer; 
 }
 
+.narrow-svg-wrap .circle:hover{
+    r:21;
+    cursor: pointer;
+}
+
+.circle:active {
+    r:16;
+}
 
 .glass{
     background: rgba(255, 255, 255, 0.623);
@@ -137,26 +149,37 @@ svg{
         width: 100vw;
         overflow-x: hidden;
     }
+
+
     .header{
-        margin-top: 30px;
+        margin-top: 10px;
+    }
+    .header h1{
+        font-size: 2.2rem;
+    }
+    .header h3{
+        font-size: 1.5rem;
     }
     .colorBox{
         margin: 0px;
     }
+    .legend h3{
+        font-size: 1.2rem;
+    }
     .nameBox{
         width: 100vw;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
+
     .legend{
         width: 100vw;
         height: auto;
         flex-direction: row;
     }
+    
     .legBox{
         flex-direction: column;
         height: 40px;
-        font-size: 1rem;
-        margin-bottom: 30px;
     }
 }
