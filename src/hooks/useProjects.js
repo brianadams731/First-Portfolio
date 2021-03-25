@@ -12,7 +12,7 @@ const useProjects = (project,name) =>{
             },
             sideScroller:{
                 name:"Side Scroller",
-                img: ["SideScroller.jpg","Death - Copy.png"],  // loading from public
+                img: ["cartrage.png","Death - Copy.png"],  // loading from public
                 desc: "Inspired by retro games like Castlvenia, made using pure js Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 tech: ["js", "html","css"],
                 link: "https://brianadams731.github.io/sideScrollerResume/sideScroller/",
