@@ -10,16 +10,7 @@ import {motion} from "framer-motion"
 
 const ClickMod = (props) =>{
     const project = useProjects(props.type,props.typeKey);
-    const colorVer = {
-        color:{
-            fill:"#F07178",
-            transition:{
-                duration:.5
-            }
-        },
-        none:{
-        }
-    }
+
     return(
         <motion.div onClick={(e)=>e.stopPropagation()} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper">
             <div className="exit" onClick={props.exit}>
