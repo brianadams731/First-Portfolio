@@ -1,5 +1,5 @@
 import {motion, AnimatePresence} from "framer-motion";
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState} from "react";
 import "../styles/main.css";
 
 
@@ -81,7 +81,7 @@ function App() {
       opacity:1,
       display:"inline",
       transition:{
-        delay: dotDelay.current,
+        delay: narrowScreen?dotDelay.current/1.5:dotDelay.current,
         duration:.5,
       },
     },
@@ -100,10 +100,19 @@ function App() {
     },
   }
 
+  const narrowPathVer = {
+    pathInitial : {
+      pathLength:0,
+    },
+    animPath:{
+      pathLength:1,
+    },
+  }
+
   return (
     <div className="app-wrap" onClick={unMountAllMod}>
       <div className="header">
-        <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay.current}} className="nameBox noselect">
+        <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:narrowScreen?dotDelay.current/1.5:dotDelay.current}} className="nameBox noselect">
           <h1>Brian Adams</h1>
           <h3>Frontend Developer</h3>
         </div>
@@ -122,7 +131,7 @@ function App() {
       </div>
 
       {!narrowScreen?
-      <div className="wide-svg-wrap">
+      <motion.div key="wideSvg" className="wide-svg-wrap">
         <svg viewBox="0 0 1440 378" fill="none" xmlns="http://www.w3.org/2000/svg">
           <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 19.5H561L724 182.5L791.5 250H1440" transition={{delay:.6, duration:pathDuration.current}} stroke="#B9E871" strokeWidth="7"/>
           <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 103H290L545.5 358.5H1440" transition={{delay:.3, duration:pathDuration.current}} stroke="#89DDF1" strokeWidth="7"/>
@@ -144,13 +153,13 @@ function App() {
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="789" cy="246" r="19" fill="#ffb487"/>
           <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1048" cy="250" r="19" fill="#ffb487"/>
         </svg>
-      </div>
+      </motion.div>
       :
-      <div className="narrow-svg-wrap">
+      <motion.div key="narrowSvg" className="narrow-svg-wrap">
         <svg viewBox="0 0 218 661" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration.current}} d="M19 0V158.5L109 248.5V356L199 446V661" stroke="#F07178" strokeWidth="5"/>
-          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} transition={{delay:.3, duration:pathDuration.current}} d="M109 0V159.5L199 249.5V357L109 447V661" stroke="#89DDF1" strokeWidth="5"/>
-          <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} transition={{delay:.6, duration:pathDuration.current}} d="M199 0V160.5L19 340.5V661" stroke="#B9E871" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration.current}} d="M19 0V158.5L109 248.5V356L199 446V661" stroke="#F07178" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.3, duration:pathDuration.current}} d="M109 0V159.5L199 249.5V357L109 447V661" stroke="#89DDF1" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.6, duration:pathDuration.current}} d="M199 0V160.5L19 340.5V661" stroke="#B9E871" strokeWidth="5"/>
           
           {/*Project*/}
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="123" r="17" className="circle" fill="#ffb487"/>
@@ -168,7 +177,7 @@ function App() {
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="338" r="17" className="circle" fill="#ffb487"/>
           <motion.circle initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="577" r="17" className="circle" fill="#ffb487"/>
           </svg>
-      </div>}
+      </motion.div>}
 
       <AnimatePresence>
         {showMod&&!displayProject?<HoverMod pos={modXY} typeKey={modKey} type={modType} key="hoverMod"/>:null}
