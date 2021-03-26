@@ -14,9 +14,9 @@ const ClickMod = (props) =>{
     return(
         <motion.div onClick={(e)=>e.stopPropagation()} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper">
             <svg className="back-svg" viewBox="0 0 218 661" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 0V158.5L109 248.5V356L199 446V661" stroke="rgba(255,255,255,.26)" strokeWidth="5"/>
-                <path d="M109 0V159.5L199 249.5V357L109 447V661" stroke="rgba(255,255,255,.26)" strokeWidth="5"/>
-                <path d="M199 0V160.5L19 340.5V661" stroke="rgba(255,255,255,.26)" strokeWidth="5"/>
+                <path d="M19 0V158.5L109 248.5V356L199 446V661" stroke="rgba(201,201,201,.3)" strokeWidth="5"/>
+                <path d="M109 0V159.5L199 249.5V357L109 447V661" stroke="rgba(201,201,201,.3)" strokeWidth="5"/>
+                <path d="M199 0V160.5L19 340.5V661" stroke="rgba(201,201,201,.3)" strokeWidth="5"/>
             </svg>
 
             <div className="exit" onClick={props.exit}>
