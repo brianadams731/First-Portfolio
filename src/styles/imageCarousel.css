@@ -16,10 +16,11 @@
     align-items: center;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.5);
+    text-align: center;
     border-radius: 100%;
     z-index: 20;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     top:50%;
 }
 

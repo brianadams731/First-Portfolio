@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 .title-wrap h1{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-align: center;
     margin-top: 20px;
@@ -57,12 +57,13 @@
 
 .description-wrap {
     font-weight: 500;
+    min-width: 30ch;
+    max-width: 60ch;
     color:black;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     padding:15px;
     border-radius: 5px;
     flex:1;
-    width:500px;
 }
 
 
