@@ -17,18 +17,19 @@ const ClickMod = (props) =>{
             <div className="exit" onClick={props.exit}>
                 x
             </div>
-            
-            <div className="title-wrap">
-                <h1 className="num" >01</h1>
-                <h1>{project?.name}</h1>
-            </div>
-            <div className="content-wrap">
-                <div className="carousel-img-wrap">
-                    <ImageCarousel images={project?.img} />
+            <div className="info-wrap">
+                <div className="title-wrap">
+                    <h1 className="num" >01</h1>
+                    <h1 className="title">{project?.name}</h1>
                 </div>
-                <div className="description-wrap">
-                    <div className="app-desc">
-                        <p>{project?.desc}</p>
+                <div className="content-wrap">
+                    <div className="carousel-img-wrap">
+                        <ImageCarousel images={project?.img} />
+                    </div>
+                    <div className="description-wrap">
+                        <div className="app-desc">
+                            <p>{project?.desc}</p>
+                        </div>
                     </div>
                 </div>
             </div>
