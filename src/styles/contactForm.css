@@ -3,4 +3,98 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 50px;
+}
+
+.contact-form-wrap input, .contact-form-wrap textarea{
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+} 
+
+.contact-form-wrap input{
+    width: 70%;
+    background-color: rgba(122, 122, 122, 0.8);
+    border: none;
+    border-radius: 2px;
+    color: white;
+    transition: all .5s ease;
+}
+
+.contact-form-wrap .name{
+    box-shadow:0px -3px 0px 0px #B9E871 inset;
+}
+.contact-form-wrap .email{
+    box-shadow:0px -3px 0px 0px #B9DDF1 inset;
+}
+.contact-form-wrap .message{
+    background-color: rgba(122, 122, 122, 0.6);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    box-shadow:0px -3px 0px 0px #F0717B inset;
+    transition: all .5s ease;
+    resize: none;
+}
+.contact-form-wrap .name:focus{
+    box-shadow:0px 0px 0px 3px #B9E871 inset;
+    background-color: rgb(122, 122, 122);
+    outline: none;
+}
+
+.contact-form-wrap .email:focus{
+    box-shadow:0px 0px 0px 3px #B9DDF1 inset;
+    background-color: rgb(122, 122, 122);
+    outline: none;
+}
+
+.contact-form-wrap .message:focus{
+    box-shadow:0px 0px 0px 6px #F0717B inset;
+    background-color: rgb(122, 122, 122);
+    outline: none;
+}
+
+.contact-form-wrap div{
+    margin-bottom: 15px;
+}
+
+.contact-form-wrap form{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-wrap .form-btn{
+    margin-top: 20px;
+    padding: 15px 48px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: center;
+    transition: all ease .2s;
+}
+
+.contact-form-wrap .form-btn:hover{
+    transform: scale(1.1);
+}
+.contact-form-wrap .form-btn:active{
+    transform: scale(1);
+}
+
+
+@media only screen and (max-width: 735px) {
+    .contact-form-wrap{
+        width: 90vw;
+    }
+    .contact-form-wrap input, .contact-form-wrap textarea{
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
 }

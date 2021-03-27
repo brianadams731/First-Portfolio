@@ -9,8 +9,8 @@ import "../styles/contact.css"
 
 const Contact = (props) =>{
     return (
-        <motion.div onClick={(e)=>{e.stopPropagation()}} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} className="contact-wrap">
-            {props.typeKey==="form"?<ContactForm />:<ContactSocial />}
+        <motion.div onClick={(e)=>{e.stopPropagation()}} initial={{x:"-100vw"}} animate={{x:0}} exit={{x:"100vw"}} transition={{duration:.6}} className="contact-wrap">
+            {props.typeKey==="form"?<ContactForm exit={props.exit}/>:<ContactSocial />}
         </motion.div>
     )
 }

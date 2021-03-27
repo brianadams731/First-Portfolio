@@ -179,7 +179,7 @@ function App() {
       <AnimatePresence>
         {showMod?<HoverMod pos={modXY} typeKey={modKey} type={modType} key="hoverMod"/>:null}
         {displayProject?<ClickMod exit={unMountAllMod} typeKey={modKey} type={modType} key="clickMod"/>:null}
-        {displayContact?<Contact typeKey={modKey} key="contact"/>:null}
+        {displayContact?<Contact exit={unMountAllMod} typeKey={modKey} key="contact"/>:null}
         {displayAbout?<About typeKey={modKey} key="about"/>:null}
       </AnimatePresence>
     </div>

@@ -28,7 +28,7 @@ const useProjects = (project,name) =>{
                 name:"Soul Shine Sisters",
                 img: [],
                 desc:"Ecommerce store",
-                tech: ["js","next"],
+                tech: ["js","react","next","html","css"],
                 link: null,
             }
         },
