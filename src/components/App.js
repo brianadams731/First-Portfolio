@@ -166,7 +166,7 @@ function App() {
           <motion.circle onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} circle cx="199" cy="577" r="17" className="circle" fill="#ffb487"/>
           
           {/*Contact*/}
-          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")} initial={"hovInitial"}  variants={hoverVer} animate={"popIn"} cx="109" cy="85" r="17" className="circle" fill="#ffb487"/>
+          <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"}  variants={hoverVer} animate={"popIn"} cx="109" cy="85" r="17" className="circle" fill="#ffb487"/>
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","form")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","form")} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="109" cy="493" r="17" className="circle" fill="#ffb487"/>
 
           {/*About*/}

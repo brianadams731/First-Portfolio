@@ -19,7 +19,7 @@ const ClickMod = (props) =>{
             </div>
             <div className="info-wrap">
                 <div className="title-wrap">
-                    <h1 className="num" >01</h1>
+                    <h1 className="num" >0{project?.tech.length}</h1>
                     <h1 className="title">{project?.name}</h1>
                 </div>
                 <div className="content-wrap">
