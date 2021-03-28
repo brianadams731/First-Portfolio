@@ -21,6 +21,7 @@
     justify-content: space-around;
     padding:50px;
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .item {
@@ -42,4 +43,25 @@
     transform: scale(1);
     color: #b9e871;
     fill: #b9e871;
+}
+
+.email-container{
+    display: flex;
+    width: fit-content;
+    padding: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: auto;
+    margin-bottom: 15px;
+    font-size: .9rem;
+    font-weight: 300;
+    color: white;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgba(122, 122, 122, 0.6);
+}
+
+.email-container svg{
+    width: 30px;
+    margin-right: 15px;
 }
