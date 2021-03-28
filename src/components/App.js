@@ -136,10 +136,9 @@ function App() {
 
           {/*Red*/}
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="194" cy="179" r="19" fill="#ffb487"/>
-          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="720" cy="179" r="19" fill="#ffb487"/>
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="526" cy="179" r="19" fill="#ffb487"/>
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="823" cy="85" r="19" fill="#ffb487"/>
-          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1259" cy="85" r="19" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1259" cy="85" r="19" fill="#ffb487"/>
 
           {/*Blue*/}
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="289" cy="103" r="19" fill="#ffb487"/>
@@ -160,10 +159,9 @@ function App() {
           
           {/*Project*/}
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","recypher")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","recypher")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="123" r="17" className="circle" fill="#ffb487"/>
-          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="109" cy="249" r="17" className="circle" fill="#ffb487"/>
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","sideScroller")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","sideScroller")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="109" cy="358" r="17" className="circle" fill="#ffb487"/>
           <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","soulShine")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","soulShine")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="199" cy="447" r="17" className="circle" fill="#ffb487"/>
-          <motion.circle onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} circle cx="199" cy="577" r="17" className="circle" fill="#ffb487"/>
+          <motion.circle onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} onMouseEnter={(e)=>{hoverModSetUp(e,"projects","elderLawForm")}} onMouseLeave={unMountHoverMod} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} circle cx="199" cy="577" r="17" className="circle" fill="#ffb487"/>
           
           {/*Contact*/}
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"contact","connect")}} onMouseLeave={unMountHoverMod} onClick={(e)=>contactModSetUp(e,"contact","connect")} initial={"hovInitial"}  variants={hoverVer} animate={"popIn"} cx="109" cy="85" r="17" className="circle" fill="#ffb487"/>

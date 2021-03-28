@@ -36,12 +36,10 @@
     background-color: rgba(122, 122, 122, 0.6);
 }
 .item:hover{
-    color: #B9DDF1;
-    fill:#B9DDF1;
     transform: scale(1.1);
 }
 .item:active{
     transform: scale(1);
-    color: #F0717B;
-    fill: #F0717B;
+    color: #b9e871;
+    fill: #b9e871;
 }

@@ -75,11 +75,14 @@ svg{
     font-size: 3rem;
     font-weight: 500;
     border-bottom: 2px solid #F07178;
+    width: fit-content;
+    margin: auto;
 }
 
 .nameBox h3{
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 400;
+    text-align: center;
 }
 
 .legend {
