@@ -114,7 +114,7 @@ function App() {
           <h3>Frontend Developer</h3>
         </div>
 
-        <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:dotDelay + .1, duration:1}}>
+        <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:narrowScreen?dotDelay/1.5 + .8 :dotDelay +.2, duration:1}}>
           <div className="legBox">
             <div className="colorBox red"></div><h3>Projects</h3>
           </div>

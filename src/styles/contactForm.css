@@ -91,10 +91,14 @@
 @media only screen and (max-width: 735px) {
     .contact-form-wrap{
         width: 90vw;
+        padding: 30px;
+        font-size: 1.7rem;
     }
     .contact-form-wrap input, .contact-form-wrap textarea{
         width: 100%;
         font-size: 1.2rem;
     }
-
+    .contact-form-wrap .form-btn{
+        margin-top: 15px;
+    }
 }

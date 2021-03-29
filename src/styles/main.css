@@ -155,6 +155,10 @@ svg{
 }
 
 @media only screen and (max-width: 550px) {
+    html{
+        font-size: 14px;
+    }
+
     .app-wrap{
         width: 100vw;
         overflow-x: hidden;
@@ -184,8 +188,13 @@ svg{
 
     .legend{
         width: 100vw;
+        margin-top: 12px;
         height: auto;
         flex-direction: row;
+    }
+    
+    .circle{
+        r:16;
     }
     
     .legBox{

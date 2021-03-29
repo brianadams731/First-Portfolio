@@ -6,7 +6,7 @@ const useProjects = (project,name) =>{
             recypher:{
                 name:"Recypher",
                 img: [],
-                desc:"Translates English text into french",
+                desc:"Translates English text into French",
                 tech: ["js","python","flask","html","css"],
                 link: null,
             },

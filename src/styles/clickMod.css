@@ -172,3 +172,24 @@
         margin-left: 50px;
     }
 }
+
+@media only screen and (max-width: 550px) {
+    .title-wrap h1{
+        font-size: 2.8rem;
+    }
+    .title-wrap .num{
+        font-size: 2.8rem;
+    }
+    .title-wrap{
+        margin-top: 15px;
+    }
+    .content-wrap {
+        margin-top: 20px;
+    }
+    .tech{
+        margin-top: 10px;
+    }
+    .link-wrap {
+        margin-top: 20px;
+    }
+}
