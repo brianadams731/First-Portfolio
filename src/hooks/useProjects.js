@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState, useLayoutEffect} from "react";
 
 const useProjects = (project,name) =>{
     let items = useRef({
@@ -51,7 +51,7 @@ const useProjects = (project,name) =>{
     })
     const [item,setItem] = useState(items.current[project][name])
     
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         setItem(items.current[project][name])
     },[name,project])
 
