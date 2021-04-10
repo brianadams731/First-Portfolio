@@ -21,7 +21,7 @@ const ContactForm = ({exit}) =>{
     }
 
     const postMsg = async (obj) =>{
-        const data = await fetch("http://127.0.0.1:5000/portfolio",{
+        const data = await fetch("https://floating-ridge-50303.herokuapp.com/portfolio",{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
