@@ -1,5 +1,8 @@
+import {useState, useEffect} from "react";
 import {motion, AnimatePresence} from "framer-motion";
-import {useState} from "react";
+
+import {useHistory} from "react-router-dom";
+
 import "../styles/main.css";
 
 
@@ -12,6 +15,7 @@ import useScreenSize from "../hooks/useScreenSize";
 
 
 function App() {
+  const history = useHistory()
   const pathDuration = 6;
   const dotDelay = 6;
 
@@ -105,6 +109,27 @@ function App() {
       pathLength:1,
     },
   }
+
+  useEffect(()=>{
+    history.push(" ")
+    //eslint-disable-next-line
+  },[])
+
+  useEffect(()=>{
+    let hist = history.listen((a,action)=>{
+        if(action==="POP"){
+          if(displayProject||displayAbout||displayContact){
+            console.log(displayProject)
+            history.push(" ")
+            unMountAllMod();
+          }else{
+            history.goBack();
+          }
+        }
+    })
+    return hist
+    //eslint-disable-next-line
+  },[displayProject,displayAbout,displayContact])
 
   return (
     <div className="app-wrap" onClick={unMountAllMod}>

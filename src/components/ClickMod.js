@@ -2,6 +2,7 @@ import React from "react";
 import Tech from "../components/Tech";
 import ImageCarousel from "../components/ImageCarousel.js";
 
+
 import "../styles/clickMod.css";
 
 import useProjects from "../hooks/useProjects.js";
@@ -13,7 +14,6 @@ const ClickMod = (props) =>{
 
     return(
         <motion.div onClick={(e)=>e.stopPropagation()} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper">
-
             <div className="exit" onClick={props.exit}>
                 x
             </div>
@@ -44,3 +44,16 @@ const ClickMod = (props) =>{
 }
 
 export default ClickMod;
+
+/*useEffect(()=>{
+    history.
+    history.listen((a,action)=>{
+        if(action==="POP"){
+            history.location.pathname("/")
+            props.exit();
+        }
+    })
+    return ()=>{
+        console.log(history)
+    }
+},[])*/
