@@ -1,3 +1,13 @@
+@keyframes expandIn {
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+
 .skills-wrap{
     position: absolute;
     transform: translate(-50%, -50%);
@@ -6,34 +16,30 @@
 }
 
 .skills-wrap svg {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 }
 
 .skill-item{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding:10px;
+    text-align: center;
+    padding:25px;
 }
+
 .skills-box{
-    display: flex;
-    align-items: flex-start;
     margin-top: 30px;
 }
 
 .skills-wrap h1{
     text-align: center;
+    font-size: 3rem;
 }
 .language-box ,.lib-box, .other-box{
-    margin-left: 20px;
-    margin-right: 20px;
+    display: inline-flex;
     padding: 30px;
     padding-top: 20px;
     padding-bottom: 10px;
     background-color: rgba(122, 122, 122, 0.6);
-    border-radius: 5px;
-    width: fit-content;
+    margin-bottom: 20px;
 }
 
 .language-box{
@@ -50,24 +56,27 @@
 .language-box::after,.lib-box::after,.other-box::after{
     content: "";
     position: absolute;
-    height: 100%;
-    width: 5px;
+    height: 5px;
+    width: 100%;
     bottom: 0;
     left:0;
-    background-color: aqua;
-    border-radius: 5px 0px 0px 5px;
+    animation: expandIn 1.7s ease;
+    transform-origin: left;
+    animation-fill-mode: both;
 }
 
 .language-box::after{
     background-color: #f07178;
+    animation-delay: .5s;
 
 }
 .lib-box::after{
-    background-color: #89ddf1;
-
+    background-color: #b9e871;
+    animation-delay: 1s;
 }
 .other-box::after{
-    background-color: #b9e871;
+    background-color: #89ddf1;
+    animation-delay: 1.5s;
 }
 
 @media only screen and (max-width: 550px) {

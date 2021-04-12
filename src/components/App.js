@@ -172,7 +172,6 @@ function App() {
           {/*Green*/}
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="555" cy="19" r="19" fill="#ffb487"/>
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="789" cy="246" r="19" fill="#ffb487"/>
-          <motion.circle initial={"hovInitial"} variants={hoverVer} whileTap={"click"} whileHover={"active"} animate={"popIn"} className="circle" cx="1048" cy="250" r="19" fill="#ffb487"/>
         </svg>
       </motion.div>
       :
@@ -195,7 +194,6 @@ function App() {
           {/*About*/}
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","skills")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","skills")} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="199" cy="161" r="17" className="circle" fill="#ffb487"/>
           <motion.circle onMouseEnter={(e)=>{hoverModSetUp(e,"about","interests")}} onMouseLeave={unMountHoverMod} onClick={(e)=>aboutModSetUp(e,"about","interests")} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="338" r="17" className="circle" fill="#ffb487"/>
-          <motion.circle initial={"hovInitial"} variants={hoverVer} animate={"popIn"} cx="19" cy="577" r="17" className="circle" fill="#ffb487"/>
           </svg>
       </motion.div>}
 
