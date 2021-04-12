@@ -5,15 +5,23 @@
     padding:30px;
 }
 
+.skills-wrap svg {
+    width: 100px;
+    height: 100px;
+}
+
+.skill-item{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding:10px;
+}
 .skills-box{
     display: flex;
     align-items: flex-start;
     margin-top: 30px;
 }
 
-.skills-wrap h3{
-    margin-bottom: 10px;
-}
 .skills-wrap h1{
     text-align: center;
 }

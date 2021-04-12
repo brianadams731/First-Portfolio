@@ -1,7 +1,29 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import {motion, AnimatePresence} from "framer-motion";
+
 import "../styles/contactSocial.css"
 
 const ContactSocial = () =>{
+    const [copy,setCopy] = useState(false);
+
+    useEffect(()=>{
+        let time = setTimeout(()=>{
+            setCopy(false)
+        },1000)
+        return ()=>{
+            clearInterval(time);
+        }
+    })
+
+    const copyToClip = (text) =>{
+        let dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+    }
+
     return(
         <div className="contact-social-wrap glass">
             <h2>Connect</h2>
@@ -33,7 +55,13 @@ const ContactSocial = () =>{
                     <h3>Linkedin</h3>
                 </div>
             </div>
-            <div className="email-container">
+            <div className="email-container item" onClick={()=>{
+                copyToClip("brianadams731@gmail.com");
+                setCopy(true)
+            }}>
+                <AnimatePresence >
+                    {copy&&<motion.h3 initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: .3}} className="email-container-confirm">Copied To Clipboard</motion.h3>}
+                </AnimatePresence>
                 <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330.001 330.001">
 	                <path id="XMLID_350_" d="M173.871,177.097c-2.641,1.936-5.756,2.903-8.87,2.903c-3.116,0-6.23-0.967-8.871-2.903L30,84.602L0.001,62.603L0,275.001c0.001,8.284,6.716,15,15,15L315.001,290c8.285,0,15-6.716,15-14.999V62.602l-30.001,22L173.871,177.097z"/>
 	                <polygon id="XMLID_351_" points="165.001,146.4 310.087,40.001 19.911,40"/>
