@@ -21,7 +21,7 @@ const Skills = () =>{
             <h1>Skills</h1>
             <div className="skills-box">
                 <div className="language-box">
-                    <div className="skill-item"><JsSVG /><h3>JavaScript ES6</h3></div>
+                    <div className="skill-item"><JsSVG /><h3>JavaScript</h3></div>
                     <div className="skill-item"><PythonSVG/><h3>Python</h3></div>
                     <div className="skill-item"><JavaSVG /><h3>Java</h3></div>
                     <div className="skill-item"><HtmlSVG /><h3>HTML</h3></div>

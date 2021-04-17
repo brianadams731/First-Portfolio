@@ -52,4 +52,7 @@
         margin: 0px;
         margin-bottom: 20px;
     }
+    .tech-item p{
+        font-size: 1.4rem;
+    }
 }

@@ -31,7 +31,7 @@ const ImageCarousel = (props) =>{
         }else if(imgIndex === images.length - 1){
             setImgIndex(0);
         } 
-    },3500)
+    },5000)
 
     
     const blurControls = () =>{

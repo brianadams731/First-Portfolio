@@ -12,6 +12,7 @@
     position: absolute;
     transform: translate(-50%, -50%);
     color: white;
+    max-width: 100vw;
     padding:30px;
 }
 
@@ -35,11 +36,16 @@
 }
 .language-box ,.lib-box, .other-box{
     display: inline-flex;
+    justify-content: center;
     padding: 30px;
     padding-top: 20px;
     padding-bottom: 10px;
     background-color: rgba(122, 122, 122, 0.6);
     margin-bottom: 20px;
+    width: 75vw;
+    max-width: max-content;
+    min-width: fit-content;
+    flex-wrap: wrap;
 }
 
 .language-box{
@@ -105,8 +111,6 @@
     }
     
     .skills-box{
-        display: flex;
-        align-items: flex-start;
         margin-top: 15px;
     }
 }
