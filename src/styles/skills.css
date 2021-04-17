@@ -16,13 +16,13 @@
 }
 
 .skills-wrap svg {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
 }
 
 .skill-item{
     text-align: center;
-    padding:25px;
+    padding:15px;
 }
 
 .skills-box{
@@ -31,7 +31,7 @@
 
 .skills-wrap h1{
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.8rem;
 }
 .language-box ,.lib-box, .other-box{
     display: inline-flex;
@@ -106,8 +106,9 @@
     .language-box ,.lib-box, .other-box{
         margin-left: 5px;
         margin-right: 5px;
-        padding: 15px;
-        padding-top: 15px;
+        margin-bottom: 10px;
+        padding: 0px;
+        padding-top: 10px;
         padding-bottom: 10px;
     }
 

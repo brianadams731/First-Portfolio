@@ -5,14 +5,14 @@ const useProjects = (project,name) =>{
         projects:{
             recypher:{
                 name:"Recypher",
-                img: [],
+                img: ["Recypher1.jpg","Recypher2.jpg","Recypher3.jpg"],
                 desc:"This is a chrome extension built to aid language learning. I am an active reader of various newsletters and news sites like medium and programming digest, and also learning french. This extension allows me to do both at the same time. This extension searches the pages you visit prioritising specific symantic html tags, randomly selects sentences then translates those sentences into french, and injects them back into the page. Upon hovering translated text the extension will show the original sentence in english. Secondly when reading full french text like articles found on Le Monde a user can highlight any text, press a control + shift + 3 and get an english translation of the highlighted selection displayed on the page. This 2 stage approach helps involve the learner at every step in the learning journey and makes the french language as asseccable as possible. The chrome extension is build using JS, HTML, and CSS. While the backend is build using Flask and Azure.",
                 tech: ["js","python","flask","html","css"],
                 link: null,
             },
             sideScroller:{
                 name:"Side Scroller",
-                img: ["cartrage.png","Death - Copy.png"],  // loading from public
+                img: ["cartrage.png","SideScroll2.jpg"],  // loading from public
                 desc: "Inspired by retro games like Castlevenia and Super Mario Bros, made using JavaScript (ES6+) and HTML canvas. I decided to not use any external libraries building this project, instead using this as an opportunity to solve problems like tile maps, enemy logic and looping parallax with my own implementation. This project was a great opportunity to focus on my javascript fundimentals and maintain project structure.",
                 tech: ["js", "html","css"],
                 link: "https://brianadams731.github.io/sideScrollerResume/sideScroller/",
