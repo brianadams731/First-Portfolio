@@ -9,11 +9,10 @@
 
 
 .skills-wrap{
-    position: absolute;
-    transform: translate(-50%, -50%);
     color: white;
     max-width: 100vw;
     padding:30px;
+    width: min-content;
 }
 
 .skills-wrap svg {

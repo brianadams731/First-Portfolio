@@ -9,7 +9,7 @@ import "../styles/about.css"
 const About = (props) =>{
     
     return (
-        <motion.div onClick={(e)=>e.stopPropagation()} initial={{x:"-100vw"}} animate={{x:0}} exit={{x:"100vw"}} transition={{duration:.6}} className="about-wrap">
+        <motion.div onClick={(e)=>e.stopPropagation()} initial={{x:"-100vw", y:"-50%"}} animate={{x:"-50%", y:"-50%"}} exit={{x:"100vw", y:"-50%"}} transition={{duration:.6}} className="about-wrap">
             {props.typeKey==="skills"?<Skills />:<Interests />}
         </motion.div>
     )
