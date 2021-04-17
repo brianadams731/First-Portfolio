@@ -88,11 +88,20 @@
     body{
         font-size: 16px;
     }
-    h1{
+    .skills-wrap h1{
         font-size: 1.6rem;
     }
     h3{
         font-size: .8rem;
+    }
+    .skill-item{
+        text-align: center;
+        padding:15px;
+    }
+    .skill-item svg{
+        text-align: center;
+        width: 45px;
+        height: 45px;
     }
     .language-box ,.lib-box, .other-box{
         margin-left: 5px;
@@ -103,8 +112,6 @@
     }
 
     .skills-wrap{
-        position: absolute;
-        transform: translate(-50%, -50%);
         color: white;
         padding:15px;
     }

@@ -15,7 +15,9 @@ const ClickMod = (props) =>{
     return(
         <motion.div onClick={(e)=>e.stopPropagation()} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}  transition={{duration:.3}} className="click-mod-wrapper">
             <div className="exit" onClick={props.exit}>
-                x
+                <motion.svg whileHover={{stroke:"#F0717B", scale:1.2}} strokeWidth="5" stroke="#FFFFFF" width="20" height="20" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 32L32 2M32 32L2 2" />
+                </motion.svg>
             </div>
             <div className="info-wrap">
                 <div className="title-wrap">

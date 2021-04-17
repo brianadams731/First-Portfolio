@@ -34,7 +34,6 @@
 
 .exit{
     position: absolute;
-    color: white;
     top:30px;
     left: 60px;
 }
@@ -168,6 +167,13 @@
 .tech{
     margin-top: 40px;
 }
+
+@media only screen and (max-width:1200px){
+    .exit{
+        left:auto;
+        right:60px;
+    }
+}
 @media only screen and (min-width: 735px) {
     .description-wrap{
         margin-left: 50px;
@@ -175,10 +181,6 @@
 }
 
 @media only screen and (max-width: 550px) {
-    .exit{
-        left:auto;
-        right:30px;
-    }
     .title-wrap h1{
         font-size: 3.5rem;
     }

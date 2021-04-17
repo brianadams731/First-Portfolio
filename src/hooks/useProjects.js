@@ -22,7 +22,7 @@ const useProjects = (project,name) =>{
                 img: ["elderform1.jpg","elderform2.jpg","elderform3.jpg"],
                 desc:"Application used to onboard new clients at a local law office. This is a complex form featuring 7 pages of various form elements, including a 2 dynamic fields that expand to add more fields if needed. This application is animated with Framer Motion, which gives the progress bar and card animations a more polished and natural feel. This application is using  React Hook Forms which helped with form validation as well as speed up the development process. The onboarding application uses a Flask backend which parses the data collected into a shape the client desired, as well as updating the client when a potential client submits the form, then sends the data to the attorney.",
                 tech: ["js","react","python","flask","html","css"],
-                link: null,
+                link: "https://elderlaw.netlify.app/",
             },
             soulShine:{
                 name:"Soul Shine Sisters",
