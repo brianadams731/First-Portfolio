@@ -10,7 +10,7 @@ const HoverMod = (props) =>{
     
 
     return (
-        <motion.div style={{left:`${props.pos[0]+25}px`, top:`${props.pos[1]-10}px`}} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:.2}}} className="project-mod-wrap" key="hover">
+        <motion.div style={{left:`${props.pos[0]}px`, top:`${props.pos[1]}px`, transform:"translate(-50%,-80%)"}} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0, transition:{duration:.2}}} className="project-mod-wrap" key="hover">
             <div className="header-box"><h3 className="mod-hover">{project.name}</h3></div>
         </motion.div>
     )
