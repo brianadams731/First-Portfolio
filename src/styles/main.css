@@ -136,12 +136,11 @@ svg{
 }
 
 .narrow-svg-wrap .circle:hover{
-    r:21;
     cursor: pointer;
 }
 
-.circle:active {
-    r:16;
+.wide-svg-wrap .circle:active {
+    r:20;
 }
 
 .glass{
@@ -195,10 +194,6 @@ svg{
         margin-top: 12px;
         height: auto;
         flex-direction: row;
-    }
-    
-    .circle{
-        r:15;
     }
     
     .legBox{
