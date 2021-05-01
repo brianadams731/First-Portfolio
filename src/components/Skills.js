@@ -9,6 +9,7 @@ import NextSVG from "../assets/nextSVG";
 import ReactSVG from "../assets/reactSVG";
 import JavaSVG from "../assets/JavaSVG";
 import ReduxSVG from "../assets/ReduxSVG";
+import RecoilSVG from "../assets/RecoilSVG";
 import FigmaSVG from "../assets/FigmaSVG";
 import PhotoshopSVG from "../assets/PhotoshopSVG";
 import LightroomSVG from "../assets/LightroomSVG";
@@ -31,7 +32,7 @@ const Skills = () =>{
                     <div className="skill-item"><ReactSVG /><h3>React</h3></div>
                     <div className="skill-item"><ReduxSVG /><h3>Redux</h3></div>
                     <div className="skill-item"><NextSVG /><h3>Next</h3></div>
-                    <div className="skill-item"><ReduxSVG /><h3>Recoil</h3></div>
+                    <div className="skill-item"><RecoilSVG /><h3>Recoil</h3></div>
                     <div className="skill-item"><FlaskSVG /><h3>Flask</h3></div>
                 </div>
                 <div className="other-box">
