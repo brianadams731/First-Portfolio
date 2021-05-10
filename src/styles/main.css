@@ -192,6 +192,7 @@ svg{
     .legend{
         width: 100vw;
         margin-top: 12px;
+        margin-bottom: 10px;
         height: auto;
         flex-direction: row;
     }
