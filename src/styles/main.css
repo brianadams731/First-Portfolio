@@ -157,6 +157,15 @@ svg{
     transform: translate(-50%,-50%);
 }
 
+.mobCircle{
+    r:19;
+    fill:#FFDAC1;
+}
+
+.hovPoint:hover{
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
     html{
         font-size: 14px;
