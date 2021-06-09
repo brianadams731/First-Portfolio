@@ -36,11 +36,13 @@
     position: absolute;
     top:30px;
     left: 60px;
+    z-index: 9999;
 }
 .info-wrap{
     max-width: 100%;
     padding-left: 30px;
     padding-right: 30px;
+    position: relative;
 }
 .exit:hover{
     cursor: pointer;
@@ -120,14 +122,14 @@
     border-radius: 5px;
     flex:1;
 }
-.content-wrap::after{
+
+.info-wrap::after{
     content:"";
     display: block;
     position: absolute;
     bottom: 0;
-    left:-30px;
     height: 5px;
-    width: calc(100% + 40px);
+    width: 85%;
     background-color: #B9E871;
     animation: expandIn 1.7s ease;
     animation-delay: 1.5s;
