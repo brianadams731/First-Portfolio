@@ -15,7 +15,7 @@ const useProjects = (project,name) =>{
                 img: ["cartrage.png","SideScroll2.jpg"],  // loading from public
                 desc: "Inspired by retro games like Castlevania and Super Mario Bros, made using JavaScript (ES6+) and HTML canvas. I decided to not use any external libraries building this project, instead using this as an opportunity to solve problems like tile maps, enemy logic and looping parallax with my own implementation. This project was a great opportunity to focus on my javascript fundamentals and organization of larger project structures.",
                 tech: ["js", "html","css"],
-                link: "https://brianadams731.github.io/sideScrollerResume/sideScroller/",
+                link: "https://brianadams731.github.io/SideScroller/",
             },
             elderLawForm:{
                 name:"Elder Law Form",
