@@ -177,9 +177,9 @@ function App() {
       :
       <motion.div key="narrowSvg" className="narrow-svg-wrap">
         <svg viewBox="0 0 218 604" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration}} d="M19 0V158.5L109 248.5V356L199 446V661" stroke="#F07178" strokeWidth="5"/>
-          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration}} d="M109 0V159.5L199 249.5V357L109 447V661" stroke="#89DDF1" strokeWidth="5"/>
-          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration}} d="M199 0V160.5L19 340.5V661" stroke="#B9E871" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.6, duration:pathDuration}} d="M199 0V160.5L19 340.5V661" stroke="#B9E871" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.3, duration:pathDuration}} d="M109 0V159.5L199 249.5V357L109 447V661" stroke="#89DDF1" strokeWidth="5"/>
+          <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration}} d="M19 0V158.5L109 248.5V356L199 446V661" stroke="#F07178" strokeWidth="5"/>          
           
           {/* PROJECTS */}
           <motion.g onClick={(e)=>{clickModSetUp(e,"projects","elderLawForm")}} initial={"hovInitial"} variants={hoverVer} animate={"popIn"} className="hovPoint">
