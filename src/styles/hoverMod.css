@@ -1,9 +1,9 @@
 @keyframes leftToRight{
     from{
-        transform: translateX(-100%);
+        transform: scaleX(0);
     }
     to{
-        transform: translateX(0%);
+        transform: scaleX(1);
     }
 }
 
