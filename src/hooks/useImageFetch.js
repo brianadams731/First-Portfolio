@@ -5,7 +5,6 @@ const useImageFetch = (imgArray) =>{
     const [images,setImages] = useState([]);
     useEffect(()=>{
         setImages([]);
-        console.log("image fetch")
         imgArray?.forEach((item)=>{
             setImages(prevState =>([...prevState,<motion.img initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} key={item} src={`${process.env.PUBLIC_URL}/assets/${item}`} loading="lazy" alt="porfolioImg"/>]))
         })

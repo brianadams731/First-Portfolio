@@ -18,7 +18,7 @@ import "../styles/skills.css";
 
 const Skills = () =>{
     return(
-        <div className="skills-wrap glass">
+        <div className="skills-wrap">
             <h1>Skills</h1>
             <div className="skills-box">
                 <div className="language-box">

@@ -47,13 +47,13 @@ const ContactForm = ({exit}) =>{
     return (
         <motion.div onClick={(e)=>{e.stopPropagation()}} className="contact-form-wrap glass">
             <form onSubmit={(e)=>handelSubmit(e)}>
-                <div><label for="name">Name</label><input type="text" name="name" className="name" value={name} onChange={(e)=>{
+                <div><label htmlFor="name">Name</label><input type="text" name="name" className="name" value={name} onChange={(e)=>{
                     setName(e.target.value);
                 }}/></div>
-                <motion.div initial={{x:error?-20:0}} animate={{x:error?[0,-7,7,-7,7,0]:0}} transition={{duration:.7}} style={{color:error?"#F0717B":"white"}}><label for="email">Email</label><input type="text" className="email" value={email} name="email" onChange={(e)=>{
+                <motion.div initial={{x:error?-20:0}} animate={{x:error?[0,-7,7,-7,7,0]:0}} transition={{duration:.7}} style={{color:error?"#F0717B":"white"}}><label htmlFor="email">Email</label><input type="text" className="email" value={email} name="email" onChange={(e)=>{
                     setEmail(e.target.value);
                 }}/></motion.div>
-                <div><label for="message">Message</label><textarea value={message} name="message" className="message" rows="5" cols="50" onChange={(e)=>{
+                <div><label htmlFor="message">Message</label><textarea value={message} name="message" className="message" rows="5" cols="50" onChange={(e)=>{
                     setMessage(e.target.value);
                 }}/></div>
 

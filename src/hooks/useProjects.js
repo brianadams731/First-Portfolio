@@ -37,7 +37,7 @@ const useProjects = (project,name) =>{
                 name:"Skills"
             },
             interests:{
-                name:"Interests"
+                name:"About Me"
             }
         },
         contact:{
