@@ -7,16 +7,17 @@ const ContactForm = ({exit}) =>{
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
     const [message,setMessage] = useState("");
-    const [error,setError] = useState(false);
-    const [submitted,setSubmitted] = useState(false)
+    const [error,setError] = useState(true);
+    const [submitted,setSubmitted] = useState(false);
+    const [trySubmit,setTrySubmit] = useState(false);
     const handelSubmit = (e) =>{
         e.preventDefault();
-        if(!email || email.length===0){
-            setError(true);
-        }else{
-            setError(false);
+        setTrySubmit(true);
+        if(!error){
             setSubmitted(true);
-            postMsg({name,email,message})
+            const jsonBody = JSON.stringify({name, email, message});
+            console.log(jsonBody)
+            postMsg(jsonBody)
         }
     }
 
@@ -26,15 +27,17 @@ const ContactForm = ({exit}) =>{
             headers:{
                 'Content-Type':'application/json'
             },
-            body:JSON.stringify(obj)
+            body:obj
         })
         const parsed = await data.json();
         console.log(parsed);
     }
 
     useEffect(()=>{
-        if(email || email.length>0){
-            setError(false)
+        if(/^\S+@\S+\.\S+$/.test(email)){
+            setError(false);
+        }else{
+            setError(true);
         }
     },[email])
 
@@ -50,14 +53,14 @@ const ContactForm = ({exit}) =>{
                 <div><label htmlFor="name">Name</label><input type="text" name="name" className="name" value={name} onChange={(e)=>{
                     setName(e.target.value);
                 }}/></div>
-                <motion.div initial={{x:error?-20:0}} animate={{x:error?[0,-7,7,-7,7,0]:0}} transition={{duration:.7}} style={{color:error?"#F0717B":"white"}}><label htmlFor="email">Email</label><input type="text" className="email" value={email} name="email" onChange={(e)=>{
+                <motion.div initial={{x:error?-20:0}} animate={{x:error&&trySubmit?[0,-7,7,-7,7,0]:0}} transition={{duration:.7}} style={{color:error&&trySubmit?"#F0717B":"white"}}><label htmlFor="email">Email</label><input type="text" className="email" value={email} name="email" onChange={(e)=>{
                     setEmail(e.target.value);
                 }}/></motion.div>
                 <div><label htmlFor="message">Message</label><textarea value={message} name="message" className="message" rows="5" cols="50" onChange={(e)=>{
                     setMessage(e.target.value);
                 }}/></div>
 
-                <button style={{backgroundColor:email.length>0?"white":"rgb(132, 132, 132)"}} type="submit" className="form-btn">Submit</button>
+                <button style={{backgroundColor:error?"rgb(132, 132, 132)":"white"}} type="submit" className="form-btn">Submit</button>
             </form>
         </motion.div>
     )
