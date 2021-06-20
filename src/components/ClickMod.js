@@ -25,9 +25,9 @@ const ClickMod = (props) =>{
                     <h1 className="title">{project?.name}</h1>
                 </div>
                 <div className="content-wrap">
-                    <div className="carousel-img-wrap">
+                    <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:1.2}} className="carousel-img-wrap">
                         <ImageCarousel images={project?.img} />
-                    </div>
+                    </motion.div>
                     <div className="description-wrap">
                         <div className="app-desc">
                             <p>{project?.desc}</p>

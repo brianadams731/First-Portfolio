@@ -78,9 +78,11 @@
 
 .contact-form-wrap .form-btn:hover{
     transform: scale(1.1);
+    background-color: rgb(189, 189, 189) !important;
 }
 .contact-form-wrap .form-btn:active{
     transform: scale(1);
+    background-color: rgb(122, 122, 122) !important;
 }
 
 

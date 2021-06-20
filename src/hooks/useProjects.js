@@ -25,9 +25,9 @@ const useProjects = (project,name) =>{
                 link: "https://elderlaw.netlify.app/",
             },
             soulShine:{
-                name:"Soul Shine Sisters",
+                name:"Storefront",
                 img: [],
-                desc:"Ecommerce store, **currently being built**",
+                desc:"E commerce store, **currently being built**",
                 tech: ["js","react","next","html","css"],
                 link: null,
             }
