@@ -71,7 +71,7 @@ const ImageCarousel = (props) =>{
         <div onMouseEnter={hoverImage} onMouseLeave={exitHover} onClick={blurControls} className="carousel-wrap noselect">
             <AnimatePresence>
                 {images[imgIndex]}
-                {showControls&&<motion.div key="left" initial={{opacity:0,y:"-50%"}} animate={{opacity:1,y:"-50%"}} exit={{opacity:0,y:"-50%"}} whileTap={{scale:1}} whileHover={{scale:1.2}} className="imgLeft glass" onClick={()=>{
+                {showControls&&<motion.div key="left" initial={{opacity:0,y:"-50%"}} animate={{opacity:1,y:"-50%"}} exit={{opacity:0,y:"-50%"}} whileTap={{scale:1}} whileHover={{scale:1.2}} className="imgLeft" onClick={()=>{
                     refreshTimer();
                     if(imgIndex>0){
                         setImgIndex(prev => (prev-1));
@@ -79,7 +79,7 @@ const ImageCarousel = (props) =>{
                         setImgIndex(images.length-1)
                     }
                 }}><h3>{"<"}</h3></motion.div>}
-                {showControls&&<motion.div key="right" initial={{opacity:0,y:"-50%"}} animate={{opacity:1,y:"-50%"}} exit={{opacity:0,y:"-50%"}} whileTap={{scale:1}} whileHover={{scale:1.2}} className="imgRight glass" onClick={()=>{
+                {showControls&&<motion.div key="right" initial={{opacity:0,y:"-50%"}} animate={{opacity:1,y:"-50%"}} exit={{opacity:0,y:"-50%"}} whileTap={{scale:1}} whileHover={{scale:1.2}} className="imgRight" onClick={()=>{
                     refreshTimer();
                     if(imgIndex<images.length-1){
                         setImgIndex(prev => (prev+1));
