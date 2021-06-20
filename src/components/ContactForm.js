@@ -22,6 +22,8 @@ const ContactForm = ({exit}) =>{
     }
 
     const postMsg = async (obj) =>{
+        //http://127.0.0.1:5000/portfolio
+        //https://thoughtgrove.herokuapp.com/portfolio
         const data = await fetch("https://thoughtgrove.herokuapp.com/portfolio",{
             method: 'POST',
             headers:{
