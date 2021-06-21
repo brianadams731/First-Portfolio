@@ -12,11 +12,14 @@
     --main-green:#b9e871;
     --main-back-black:#1B1B1B;
     --main-text-back-grey:rgb(122, 122, 122,.6);
+    --main-circle-peach:rgb(253, 210, 183);
+    --main-glass-back:rgba(51, 51, 51, 0.623);
+    /*--main-circle-peach:#ffb487;*/
 }
 .app-wrap{
     height: 100vh;
     width: 100vw;
-    background-color: #1B1B1B;
+    background-color: var(--main-back-black);
     overflow-y: overlay;
     overflow-x: hidden;
     max-width: 100%;
@@ -28,7 +31,7 @@ html{
 }
 
 body{
-    background-color: #1B1B1B;
+    background-color: var(--main-back-black);
 }
 
 .header {
@@ -86,7 +89,7 @@ svg{
 .nameBox h1{
     font-size: 3rem;
     font-weight: 500;
-    border-bottom: 2px solid #F07178;
+    border-bottom: 2px solid var(--main-red);
     width: fit-content;
     margin: auto;
 }
@@ -124,16 +127,17 @@ svg{
 }
 
 .red {
-    background-color: #f07178;
+    background-color: var(--main-red);
 }
 .green {
-    background-color: #b9e871;
+    background-color: var(--main-green);
 }
 .blue{
-    background-color: #89ddf1;
+    background-color: var(--main-blue);
 }
 
 .circle{
+    fill:var(--main-circle-peach);
     transition:r .3s ease;
 }
 
@@ -151,7 +155,7 @@ svg{
 }
 
 .glass{
-    background: rgba(51, 51, 51, 0.623);
+    background: var(--main-glass-back);
     backdrop-filter: blur( 10.0px );
     -webkit-backdrop-filter: blur( 10.0px );
     /*border: 1px solid rgba( 255, 255, 255, 0.18 );*/
@@ -166,7 +170,7 @@ svg{
 
 .mobCircle{
     r:19;
-    fill:#FFDAC1;
+    fill:var(--main-circle-peach);
 }
 
 .hovPoint:hover{
