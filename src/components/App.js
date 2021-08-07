@@ -136,7 +136,7 @@ function App() {
       <div className="header">
         <div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:narrowScreen?dotDelay/1.5:dotDelay}} className="nameBox noselect">
           <h1>Brian Adams</h1>
-          <h3>Frontend Developer</h3>
+          <h3>Web App Developer</h3>
         </div>
 
         <motion.div className="legend noselect" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:narrowScreen?dotDelay/1.5 + .8 :dotDelay +.2, duration:1}}>
