@@ -8,6 +8,7 @@ import CssSVG from "../assets/cssSVG";
 import PythonSVG from "../assets/pythonSVG";
 import NextSVG from "../assets/nextSVG";
 import ReactSVG from "../assets/reactSVG";
+import PostgresSVG from "../assets/PostgresSVG";
 
 const Tech = (props) =>{
     const showItem = (item,array, toShow) =>{
@@ -52,8 +53,15 @@ const Tech = (props) =>{
                 <div className="tech-item">
                     <FlaskSVG />
                     <p>Flask</p>
-                </div>)}
-
+                </div>
+                )}
+                {/*pg*/}
+                {showItem("pg", props.techUsed,
+                <div className="tech-item">
+                    <PostgresSVG/>
+                    <p>Postgres</p>
+                </div>
+                )}
                 {/*css*/}
                 {showItem("css", props.techUsed,
                 <div className="tech-item">

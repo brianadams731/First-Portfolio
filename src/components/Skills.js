@@ -12,7 +12,7 @@ import ReduxSVG from "../assets/ReduxSVG";
 import RecoilSVG from "../assets/RecoilSVG";
 import FigmaSVG from "../assets/FigmaSVG";
 import PhotoshopSVG from "../assets/PhotoshopSVG";
-import LightroomSVG from "../assets/LightroomSVG";
+import PostgresSVG from "../assets/PostgresSVG";
 
 import "../styles/skills.css";
 
@@ -36,9 +36,9 @@ const Skills = () =>{
                     <div className="skill-item"><FlaskSVG /><h3>Flask</h3></div>
                 </div>
                 <div className="other-box">
+                    <div className="skill-item"><PostgresSVG /><h3>Postgres</h3></div>
                     <div className="skill-item"><FigmaSVG /><h3>Figma</h3></div>
                     <div className="skill-item"><PhotoshopSVG /><h3>Photoshop</h3></div>
-                    <div className="skill-item"><LightroomSVG /><h3>Lightroom</h3></div>
                 </div>
             </div>
         </div>

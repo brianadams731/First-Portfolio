@@ -14,7 +14,7 @@ const useProjects = (project,name) =>{
                 name:"Side Scroller",
                 img: ["cartridge.png","SideScroll2.jpg"],  // loading from public
                 desc: "Inspired by retro games like Castlevania and Super Mario Bros, made using JavaScript (ES6+) and HTML canvas. I decided not to use any external libraries building this project, instead using this project as an opportunity to solve problems like tile maps, enemy logic and looping parallax with my own implementation. This project was a great opportunity to focus on my javascript fundamentals and organization of larger project structures.",
-                tech: ["js", "python","flask","html","css"],
+                tech: ["js", "python","flask","html","css","pg"],
                 link: "https://brianadams731.github.io/SideScroller/",
             },
             elderLawForm:{
@@ -28,7 +28,7 @@ const useProjects = (project,name) =>{
                 name:"Clear Cuisine",
                 img: [],
                 desc:"**Coming Soon**, this is a fully featured web application that aggregates San Francisco restaurant reviews from various sources, while providing detailed information about that restaurant's food and safety. This includes detailed descriptions of a restaurant's potential food safety violations, food safety scores, and the frequency of their violations over time. This application allows registered users to search, review and share images about restaurants they've visited. This application leverages PostGIS to provide geospatial searching through the Postgres database, user authentication and authorization, optimized queries through a Postgres database using large datasets, and a complex SPA which consumes various libraries for mapping, animation, and state management.",
-                tech: ["js","react","next","html","css", "flask", "python"],
+                tech: ["js","react","next","html","css", "flask", "python","pg"],
                 link: null,
             }
         },
