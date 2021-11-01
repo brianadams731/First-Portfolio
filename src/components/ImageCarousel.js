@@ -78,7 +78,7 @@ const ImageCarousel = (props) =>{
                     }else{
                         setImgIndex(images.length-1)
                     }
-                }}><h3>{"<"}</h3></motion.div>}
+                }}><h3>&#8249;</h3></motion.div>}
                 {showControls&&<motion.div key="right" initial={{opacity:0,y:"-50%"}} animate={{opacity:1,y:"-50%"}} exit={{opacity:0,y:"-50%"}} whileTap={{scale:1}} whileHover={{scale:1.2}} className="imgRight" onClick={()=>{
                     refreshTimer();
                     if(imgIndex<images.length-1){
@@ -86,7 +86,7 @@ const ImageCarousel = (props) =>{
                     }else{
                         setImgIndex(0)
                     }
-                }}><h3>{">"}</h3></motion.div>}
+                }}><h3>&#8250;</h3></motion.div>}
             </AnimatePresence>
         </div>
     )

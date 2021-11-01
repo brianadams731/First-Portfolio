@@ -11,7 +11,7 @@
 .carousel-wrap .imgLeft, .carousel-wrap .imgRight {
     position: absolute;
     display: flex;
-    font-size: 20px;
+    font-size: 40px;
     justify-content: center;
     align-items: center;
     font-weight: 300;
