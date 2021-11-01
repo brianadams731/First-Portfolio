@@ -20,17 +20,24 @@ const useProjects = (project,name) =>{
             elderLawForm:{
                 name:"Elder Law Form",
                 img: ["elderform1.jpg","elderform2.jpg","elderform3.jpg"],
-                desc:"This is an application used to onboard new clients at a local law office. This is a complex form featuring 7 pages of various form elements, including 2 dynamic fields that expand to add more fields if needed. This application is animated with Framer Motion, which gives the progress bar and card animations a more polished and natural feel. This application leverages React Hook Forms which helps with form validation and dynamic elements. The onboarding application uses a Flask backend which parses the data collected into a shape the client desires, as well as notifies and serves the data to the attorney when a potential client submits the form.",
+                desc:"This is an application used to onboard new clients at a local law office, that is currently being used in production today. This is a complex form featuring 7 pages of various form elements, including 2 dynamic fields that expand to add more fields if needed. This application is animated with Framer Motion, which gives the progress bar and card animations a more polished and natural feel. This application leverages React Hook Forms which helps with form validation and dynamic elements. The onboarding application uses a Flask backend which parses the data collected into a shape the client desires, as well as notifies and serves the data to the attorney when a potential client submits the form.",
                 tech: ["js","react","python","flask","html","css"],
                 link: "https://elderlaw.netlify.app/",
             },
             soulShine:{
+                name:"No Ordinary Self",
+                img:["blog4.jpg","blog.jpg","blog2.jpg","blog3.jpg"],
+                desc:"This is a blog that is currently being built for a wellness coach. This site will soon be a production site and used on a daily basis. The site is built on NextJS, and is statically generated. I choose to build with NextJS for the speed and security it offers, as well as the flexibility it offers so this site can grow as the client's needs grow. This blog uses Sanity for its CMS where all the blog data is authored by the client. The data will then automatically be fetched and parsed with GraphQL, which will build and deploy the site with the new static content. This site also offers the client flexibility to change the content of the site as they see fit, without developer intervention.",
+                tech:["next","react","js","html","css"],
+                link:"https://nol-blog.vercel.app/"
+            }
+            /*soulShine:{
                 name:"Clear Cuisine",
                 img: [],
                 desc:"**Coming Soon**, this is a fully featured web application that aggregates San Francisco restaurant reviews from various sources, while providing detailed information about that restaurant's food and safety. This includes detailed descriptions of a restaurant's potential food safety violations, food safety scores, and the frequency of their violations over time. This application allows registered users to search, review and share images about restaurants they've visited. This application leverages PostGIS to provide geospatial searching through the Postgres database, user authentication and authorization, optimized queries through a Postgres database using large datasets, and a complex SPA which consumes various libraries for mapping, animation, and state management.",
                 tech: ["js","react","next","html","css", "flask", "python","pg"],
                 link: null,
-            }
+            }*/
         },
         about:{
             skills:{
