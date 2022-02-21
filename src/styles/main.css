@@ -45,6 +45,10 @@ body{
     align-items: center;
 }
 
+.main-svg{
+    width: 100vw;
+}
+
 .wide-svg-wrap {
     position: relative;
     display: flex;

@@ -154,7 +154,7 @@ function App() {
 
       {!narrowScreen?
       <motion.div key="wideSvg" className="wide-svg-wrap">
-        <svg viewBox="0 0 1440 378" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="main-svg" viewBox="0 0 1440 378" fill="none" xmlns="http://www.w3.org/2000/svg">
           <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 19.5H561L724 182.5L791.5 250H1440" transition={{delay:.6, duration:pathDuration}} stroke="#B9E871" strokeWidth="7"/>
           <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 103H290L545.5 358.5H1440" transition={{delay:.3, duration:pathDuration}} stroke="#89DDF1" strokeWidth="7"/>
           <motion.path initial={"pathInitial"} variants={pathVer} animate={"animPath"} d="M0 179.5H724.5L819 85H1440" transition={{delay:0, duration:pathDuration}} stroke="#F07178" strokeWidth="7"/>
@@ -176,7 +176,7 @@ function App() {
       </motion.div>
       :
       <motion.div key="narrowSvg" className="narrow-svg-wrap">
-        <svg viewBox="0 0 218 604" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className="main-svg" viewBox="0 0 218 604" fill="none" xmlns="http://www.w3.org/2000/svg">
           <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.6, duration:pathDuration}} d="M199 0V160.5L19 340.5V661" stroke="#B9E871" strokeWidth="5"/>
           <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.3, duration:pathDuration}} d="M109 0V159.5L199 249.5V357L109 447V661" stroke="#89DDF1" strokeWidth="5"/>
           <motion.path initial={"pathInitial"} variants={narrowPathVer} animate={"animPath"} transition={{delay:.0, duration:pathDuration}} d="M19 0V158.5L109 248.5V356L199 446V661" stroke="#F07178" strokeWidth="5"/>          
